@@ -1,0 +1,20 @@
+{
+  "name": "ice-health-check",
+  "version": "1.0.0",
+  "description": "Docker health check script for ZeroC ICE",
+  "keywords": [
+    "Ice",
+    "docker",
+    "health check"
+  ],
+  "main": "index.js",
+  "bin": {
+    "ice-health-check": "./index.js"
+  },
+  "repository": "aikoven/ice-health-check",
+  "author": "Daniel Lytkin <dan.lytkin@gmail.com>",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "ice": "^3.6.3"
+  }
+}
