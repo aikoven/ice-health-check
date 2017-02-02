@@ -16,13 +16,17 @@ function check(proxyString) {
 
   proxy.ice_ping().then(
     function() {
-      process.exit(0);
+      return 0;
     },
     function(e) {
       console.error(e instanceof Ice.Exception ? e.ice_name() : e.toString());
-      process.exit(1);
+      return 1;
     }
-  );
+  ).then(function(code) {
+    return communicator.destroy().finally(function() {
+      process.exit(code);
+    });
+  });
 }
 
 if (process.argv.length <= 2) {
