@@ -1,6 +1,6 @@
 {
   "name": "ice-health-check",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Docker health check script for ZeroC ICE",
   "keywords": [
     "Ice",
