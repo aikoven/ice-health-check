@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 var Ice = require('ice').Ice;
 
-function check(proxyString) {
+function check(args) {
   var initData = new Ice.InitializationData();
   initData.properties = Ice.createProperties();
   initData.properties.setProperty('Ice.Default.Host', 'localhost');
+  initData.properties.setProperty('Ice.Default.InvocationTimeout', '1000');
+
+  args = initData.properties.parseIceCommandLineOptions(args);
+
+  var proxyString = args[2];
 
   var communicator = Ice.initialize(initData);
 
@@ -34,4 +39,4 @@ if (process.argv.length <= 2) {
   process.exit(1);
 }
 
-check(process.argv[2]);
+check(process.argv);
